@@ -10,6 +10,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+from models.user_model import UserModel
+
 @app.route('/')
 def hello():
     return "Hello World!"

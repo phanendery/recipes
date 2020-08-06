@@ -1,0 +1,13 @@
+Users can enter their ingredients and website will churn our recommended recipes 
+
+
+-users
+    -username
+    -first name
+    -password
+-ingredients
+    -a fat list of ingredients
+    -belongs to recipes
+-recipes
+    -each recipe has a bunch of ingredients
+-likes

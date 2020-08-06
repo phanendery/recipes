@@ -15,16 +15,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-# import db models
-from models.user_model import UserModel
-
 # initialize gql server
 type_defs = gql(load_schema_from_path("./gql/schema/"))
 schema = make_executable_schema(type_defs, query)
-
-# @app.route('/')
-# def hello():
-#     return "Hello World!"
 
 @app.route("/graphql", methods=["GET"])
 def graphql_playground():

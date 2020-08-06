@@ -6,7 +6,7 @@ from flask_graphql import GraphQLView
 from flask_pymongo import PyMongo
 
 app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb+srv://robin:QZgXSbE1XfkjHsTi@cluster0-f2h3f.mongodb.net/test?retryWrites=true&w=majority"
+app.config["MONGO_URI"] = ""
 app.config['MONGO_DBNAME'] = 'test'
 app.config['SECRET_KEY'] = '4c982e94-c84d-456e-978b-667354cc58af'
 

@@ -3,6 +3,7 @@ version: "3"
 services:
   api:
     build: ./api
+    restart: always
     expose:
       - 5000
     ports: 
@@ -11,23 +12,20 @@ services:
       - ./api:/user/src/app/api
     env_file: 
       - ./api/.env
-  #   depends_on:
-  #     - db
+    depends_on:
+      - db
 
-  # db:
-  #   image: postgres
-  #   volumes:
-  #     - pg_data:/var/lib/postgresql/data
-    # env_file: 
-    #   - ./api/.env
-    # expose: 
-    #   - 5432
-    # ports: 
-    #   - 5432:5432
-    # environment: 
-    #   - POSTGRES_USER=$DB_USER
-    #   - POSTGRES_PASSWORD=$DB_PASSWORD
-    #   - POSTGRES_DB=$DB
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    env_file: 
+      - ./api/.env
+    expose: 
+      - 5432
+    ports: 
+      - "5432:5432"
 
-# volumes:
-#   pg_data:
+volumes:
+  pg_data:
